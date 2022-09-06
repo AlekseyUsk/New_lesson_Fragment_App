@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="gun">
+        <item>Glock 17</item>
+        <item>Калашников</item>
+        <item>Дробовик</item>
+        <item>Винтовка М16</item>
+        <item>Пулемет</item>
+    </string-array>
+
+    <integer-array name="gun_images">
+        <item>@drawable/pistol</item>
+        <item>@drawable/aka_47</item>
+        <item>@drawable/shotgun</item>
+        <item>@drawable/m_16</item>
+        <item>@drawable/machine_gun</item>
+    </integer-array>
+
+
+</resources>

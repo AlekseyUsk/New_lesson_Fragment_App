@@ -13,11 +13,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_activity_main);
 
         if (savedInstanceState == null) {
-            GunsListFragment gunsListFragment = new GunsListFragment();
-
+            GunsListFragment gunsListFragment = GunsListFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.gun, gunsListFragment).commit();
+
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                GunFragment gunFragment = new GunFragment();
+                Gun defaultGun = new Gun("пистолет", R.drawable.pistol);
+                GunFragment gunFragment = new GunFragment().newInstance(defaultGun);
                 getSupportFragmentManager().beginTransaction().replace(R.id.detail_gun, gunFragment).commit();
             }
         }
