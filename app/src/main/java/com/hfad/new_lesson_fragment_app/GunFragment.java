@@ -39,6 +39,5 @@ public class GunFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.imageView);
         TypedArray images = getResources().obtainTypedArray(R.array.gun_images);
         imageView.setImageResource(images.getResourceId(gun.getIndex(), R.drawable.pistol));
-       // Gun defaultGun = new Gun(0);
     }
 }

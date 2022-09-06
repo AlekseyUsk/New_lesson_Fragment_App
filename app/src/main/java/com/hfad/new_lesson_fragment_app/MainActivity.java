@@ -1,8 +1,8 @@
 package com.hfad.new_lesson_fragment_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,13 +15,19 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             GunsListFragment gunsListFragment = GunsListFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.gun, gunsListFragment).commit();
-
-            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                Gun defaultGun = new Gun("пистолет", R.drawable.pistol);
-                GunFragment gunFragment = new GunFragment().newInstance(defaultGun);
-                getSupportFragmentManager().beginTransaction().replace(R.id.detail_gun, gunFragment).commit();
-            }
         }
-
+    }
+    /**
+     * @param - КОСТЫЛЬ симулировал нажатие назад (тут для красоты)
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //ищем фрагмент который сидит в контейнере gun
+        Fragment backStackFragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.gun);
+        //если такой есть, и он является GunFragment
+        if (backStackFragment != null && backStackFragment instanceof GunFragment) {
+            onBackPressed();  // то стимулируем нажатие кнопки onBackPressed - НАЗАД
+        }
     }
 }
