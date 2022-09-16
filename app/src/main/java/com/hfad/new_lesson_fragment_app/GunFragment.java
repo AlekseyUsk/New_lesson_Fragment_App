@@ -8,9 +8,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 public class GunFragment extends Fragment {
 
@@ -39,5 +42,30 @@ public class GunFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.imageView);
         TypedArray images = getResources().obtainTypedArray(R.array.gun_images);
         imageView.setImageResource(images.getResourceId(gun.getIndex(), R.drawable.pistol));
+        imageView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(requireContext(), view);// создал popup меню
+                requireActivity().getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());// заинфлейтил в это меню коркас меню
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.action_popup_clear: {
+                                imageView.setImageAlpha(0);
+                                return true;
+                            }
+                            case R.id.action_popup_exit: {
+                                requireActivity().finish();
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();// вызвал меню
+                return false;
+            }
+        });
     }
 }

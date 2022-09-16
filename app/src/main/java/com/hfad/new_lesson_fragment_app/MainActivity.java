@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     /**
      * @param - КОСТЫЛЬ симулировал нажатие назад (тут для красоты)
      */

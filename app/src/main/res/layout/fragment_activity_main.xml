@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/teal_200"
     tools:context=".MainActivity">
 
 
@@ -25,11 +24,11 @@
 
 
     <FrameLayout
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20sp"
         android:id="@+id/gun"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20sp" />
 
 
 </LinearLayout>
