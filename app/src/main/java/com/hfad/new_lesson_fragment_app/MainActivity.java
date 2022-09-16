@@ -1,9 +1,13 @@
 package com.hfad.new_lesson_fragment_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +20,32 @@ public class MainActivity extends AppCompatActivity {
             GunsListFragment gunsListFragment = GunsListFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.gun, gunsListFragment).commit();
         }
+
+        Toolbar toolbar = findViewById(R.id.toolbar);//нашел toolbar в макете и установил(достал из XML)
+        setSupportActionBar(toolbar);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings: {
+                getSupportFragmentManager().beginTransaction().replace(R.id.gun, new AboutFragment()).addToBackStack("").commit();
+                return true;
+            }
+            case R.id.action_exit: {
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     /**
      * @param - КОСТЫЛЬ симулировал нажатие назад (тут для красоты)
      */

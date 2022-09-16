@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout-land/fragment_activity_main.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/activity_main.xml" value="0.29393115942028986" />
+        <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/fragment_about.xml" value="0.26766304347826086" />
         <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/fragment_activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/fragment_child.xml" value="0.28125" />
         <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/fragment_gun.xml" value="0.29393115942028986" />
         <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/fragment_guns__list_.xml" value="0.29393115942028986" />
         <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/layout/fragment_guns_list_.xml" value="0.29393115942028986" />
+        <entry key="..\:/Users/meyso/New_lesson_Fragment_App/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
