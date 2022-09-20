@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,7 +46,7 @@ public class GunFragment extends Fragment {
         imageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(requireContext(), view);// создал popup меню
+                PopupMenu popupMenu = new PopupMenu(requireContext(), view, Gravity.BOTTOM);// создал popup меню
                 requireActivity().getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());// заинфлейтил в это меню коркас меню
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
