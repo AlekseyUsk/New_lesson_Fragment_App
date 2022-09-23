@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_activity_main);
+        setContentView(R.layout.bonus_drawer_fragment_activity);
 
         if (savedInstanceState == null) {
             GunsListFragment gunsListFragment = GunsListFragment.newInstance();
