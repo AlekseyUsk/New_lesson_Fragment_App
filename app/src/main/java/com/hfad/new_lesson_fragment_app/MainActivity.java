@@ -3,7 +3,9 @@ package com.hfad.new_lesson_fragment_app;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);//нашел toolbar в макете и установил(достал из XML)
         setSupportActionBar(toolbar);
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.burger_open, R.string.burger_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
     @Override
@@ -45,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     /**
      * @param - КОСТЫЛЬ симулировал нажатие назад (тут для красоты)
      */
