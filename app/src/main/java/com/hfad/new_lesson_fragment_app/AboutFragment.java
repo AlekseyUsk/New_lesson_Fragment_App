@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 public class AboutFragment extends Fragment {
 
     public final String CHANNEL_ID = "1";
-
+    public final String CHANNEL_ID2 = "2";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,12 +58,27 @@ public class AboutFragment extends Fragment {
 
         Notification notification = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
                 .setContentTitle("VTB")                                   // ЗАГОЛОВОК ПУША
-                .setContentText("Зачисление заработной платы 700000 руб")       // ТЕКСТ ПУША
+                .setContentText("Зачисление заработной платы 420000.35 руб")       // ТЕКСТ ПУША
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setPriority(Notification.PRIORITY_HIGH)
                 .build();
 
         notificationManager.notify(1, notification);
+
+        NotificationManager notificationManager2 = (NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID2, "CHANNEL1", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.setDescription("Это канал для то-то и то-то");
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+        Notification notification2 = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                .setContentTitle("VTB")                                   // ЗАГОЛОВОК ПУША
+                .setContentText("Ваш баланс равен 683500.96 руб")       // ТЕКСТ ПУША
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .build();
+
+        notificationManager.notify(2, notification2);
     }
 
 }
