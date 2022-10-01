@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.navigation.NavigationView;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,10 +28,29 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);//нашел toolbar в макете и установил(достал из XML)
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);  // drawer + burger
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.burger_open, R.string.burger_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_drawer_about: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.gun, new AboutFragment()).addToBackStack("").commit();
+                        drawerLayout.close();
+                        return true;
+                    }
+                    case R.id.action_drawer_exit: {
+                        finish();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -65,5 +86,7 @@ public class MainActivity extends AppCompatActivity {
         if (backStackFragment != null && backStackFragment instanceof GunFragment) {
             onBackPressed();  // то стимулируем нажатие кнопки onBackPressed - НАЗАД
         }
+
+
     }
 }
